@@ -2,7 +2,7 @@
 
 <p align="left">
   <img src="https://img.shields.io/badge/Status-Concluído-brightgreen?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/Tipo-Case%20de%20Estágio-blue?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Tipo-Case%20Analítico-blue?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Setor-Contabilidade%20Digital-orange?style=for-the-badge" />
 </p>
 
@@ -10,15 +10,44 @@
 
 ## 📌 Visão Geral
 
-Case analítico desenvolvido como projeto pessoal, aplicando **modelagem preditiva**, **diagnóstico de incerteza** e **raciocínio estratégico** ao setor de contabilidade digital no Brasil.
+Quis testar até onde uma análise de dados poderia ir quando o objetivo não fosse apenas prever um número, mas transformá-lo em uma decisão de negócio.
+
+O resultado foi este case: uma projeção do volume de abertura de empresas no Brasil em 2026, com diagnóstico de incerteza por setor e simulação de estratégia de aquisição para uma contabilidade digital.
 
 ---
 
-## 🎯 Objetivo
+## 🎯 Pergunta de Negócio
 
-Responder à pergunta de negócio:
+> **Quantas empresas serão abertas no Brasil em 2026 — e o que uma contabilidade digital deveria fazer com essa informação?**
 
-> **Quantas empresas serão abertas em 2026 e qual estratégia de aquisição maximiza o market share?**
+---
+
+## 🛠️ Stack Utilizada
+
+| Ferramenta | Uso |
+|---|---|
+| **Python** | Linguagem principal |
+| **Pandas** | Manipulação e análise de dados |
+| **NumPy** | Cálculos estatísticos |
+| **Matplotlib / Seaborn** | Visualização de dados |
+| **Estatística descritiva** | Média, desvio, sazonalidade |
+| **Séries temporais** | Análise de tendência e ciclos |
+| **Forecasting** | Projeção com índices sazonais |
+
+---
+
+## 🔄 Pipeline do Projeto
+
+```
+Dados brutos
+    → Tratamento e limpeza
+    → Análise exploratória (EDA)
+    → Identificação de sazonalidade
+    → Projeção 2026
+    → Validação e diagnóstico de erro
+    → Simulação de market share
+    → Estratégia de aquisição
+```
 
 ---
 
@@ -26,27 +55,33 @@ Responder à pergunta de negócio:
 
 ### 1. Panorama Histórico (2018–2025)
 - Volume mensal de abertura de empresas no Brasil
-- Crescimento consistente: de **140 mil (2018)** para **335 mil (2025)** aberturas/ano
+- Crescimento de **140 mil (2018)** para **335 mil (2025)** aberturas/ano
 - Sazonalidade clara: pico em julho e agosto; queda em dezembro
 
 ### 2. Projeção 2026
-- Modelagem preditiva com sazonalidade + taxa de crescimento média (2023–2025)
-- **373.408 empresas projetadas** (intervalo: 334 mil – 413 mil)
+
+**Método:** multiplicação dos índices sazonais mensais históricos pela tendência de crescimento médio dos últimos 3 anos (2023–2025).
+
+**Resultado:**
+- **Projeção central:** 373.408 empresas
+- **Intervalo:** 334 mil – 413 mil
+
+> **Nota metodológica:** o intervalo foi calculado aplicando ±1 desvio padrão dos erros históricos do modelo sobre a projeção central — não se trata de um intervalo de confiança estatístico formal (como 95% em modelos ARIMA), mas de uma faixa de variação realista baseada no comportamento passado do modelo.
 
 ### 3. Diagnóstico de Incerteza
-- Erro médio do modelo por corte de mercado
-- Setor mais volátil identificado: Psicologia (erro médio de 17,4%)
-- Causa: mudança estrutural regulatória + demanda por atendimento remoto
+- Erro médio do modelo por setor
+- Setor mais volátil: Psicologia (erro médio de 17,4%)
+- Causa: mudança estrutural regulatória + crescimento variando de +16% a +90% sem padrão repetível
 
-### 4. Meta de Market Share
-- Meta: **20% de participação** no mercado projetado
-- Vendas necessárias em 2026: **74.682 contratos**
-- Distribuição mensal baseada nos índices sazonais da projeção
+### 4. Simulação de Market Share
+
+> **Cenário hipotético:** em uma simulação de 20% de participação de mercado — uma meta ambiciosa usada aqui para fins de dimensionamento — seria necessário atingir **74.682 contratos** em 2026, distribuídos mensalmente conforme os índices sazonais.
 
 ### 5. Estratégia de Aquisição
-- Canais: LinkedIn (público racional) + Instagram/WhatsApp (decisão rápida)
-- Priorização: defender setores consolidados + capturar setor em aceleração
-- Timing: concentrar investimento **2 meses antes do pico sazonal**
+- **LinkedIn:** público de decisão racional (TI, Consultoria, Advocacia)
+- **Instagram / WhatsApp:** decisão rápida (Medicina, Psicologia)
+- **Timing:** concentrar investimento 2 meses antes do pico sazonal
+- **Prioridade:** defender setores consolidados + capturar setor em aceleração regulatória
 
 ---
 
